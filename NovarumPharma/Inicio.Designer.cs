@@ -37,15 +37,16 @@
             this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.nuevoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -85,7 +86,8 @@
             // insumosToolStripMenuItem
             // 
             this.insumosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.administrarToolStripMenuItem});
+            this.administrarToolStripMenuItem,
+            this.nuevoToolStripMenuItem1});
             this.insumosToolStripMenuItem.Name = "insumosToolStripMenuItem";
             this.insumosToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.insumosToolStripMenuItem.Text = "Insumos";
@@ -117,6 +119,16 @@
             this.panel2.Size = new System.Drawing.Size(170, 48);
             this.panel2.TabIndex = 0;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(175, 46);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -140,15 +152,11 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.administrarToolStripMenuItem_Click);
             // 
-            // pictureBox2
+            // nuevoToolStripMenuItem1
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(175, 46);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.nuevoToolStripMenuItem1.Name = "nuevoToolStripMenuItem1";
+            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.nuevoToolStripMenuItem1.Text = "Nuevo";
             // 
             // Inicio
             // 
@@ -169,9 +177,9 @@
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +198,6 @@
         private System.Windows.Forms.ToolStripMenuItem proveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem1;
     }
 }
