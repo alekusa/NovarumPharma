@@ -20,7 +20,7 @@ namespace NovarumPharma
             set { dr = value; }
         }
 
-        public void conectar()
+        public void Conectar()
         {
             conexion = new OleDbConnection(Properties.Settings.Default.conenova);
             conexion.Open();
@@ -32,14 +32,14 @@ namespace NovarumPharma
         }
         public void ejecutarQuery(string query)
         {
-            conectar();
+            Conectar();
             comando.CommandText = query;
             comando.ExecuteNonQuery();
             desconectar();
         }
         public void actualizaGrid(DataGridView dg, string query, string tabla)
         {
-            conectar();
+            Conectar();
             DataSet dataset = new DataSet();
             OleDbDataAdapter dataAdapter = new OleDbDataAdapter(query, conexion);
             dataAdapter.Fill(dataset, tabla);
@@ -51,7 +51,7 @@ namespace NovarumPharma
         {
             //combo cargado con datatable
             DataTable dt = new DataTable();
-            this.conectar();
+            this.Conectar();
             comando.CommandText = "select * from " + tabla;
             //executereder por que es un select... sino se usa nonquery
             dt.Load(comando.ExecuteReader());
@@ -63,7 +63,7 @@ namespace NovarumPharma
         public void leerTabla(string tabla)
         {
             dr = null;
-            conectar();
+            Conectar();
             comando.CommandText = "select * from " + tabla;
             dr = comando.ExecuteReader();
         }

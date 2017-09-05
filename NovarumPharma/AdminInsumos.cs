@@ -19,6 +19,7 @@ namespace NovarumPharma
         }
         Datos dato = new Datos();
         Boolean editar;
+        string cod;
         public AdminInsumos()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace NovarumPharma
                 Instancia = value;
             }
         }
-        string strinActualizarGrid = "select i.cod_insumo AS [Cod Nº],p.Nombre AS Proveedor,i.nombre AS Nombre,i.un AS UN,pi.precioSinIVAmonedaCotizada AS [Precio Sin IVA],pi.moneda AS Moneda,pi.precioSinIVAenPesos AS [Precios S/IVA en $],pi.iva AS IVA,pi.precioConIVA AS [Precion C/IVA],i.FechaActualizacion AS Actualizado from Insumos i,Proveedores p,Proveedor_Insumo pi ";
+        string strinActualizarGrid = "select i.cod_insumo AS [Cod Nº],p.Nombre AS Proveedor,i.nombre AS Nombre,i.un AS UN,pi.precioSinIVAmonedaCotizada AS [Precio Sin IVA],pi.moneda AS Moneda,pi.precioSinIVAenPesos AS [Precios S/IVA en $],pi.iva AS IVA,pi.precioConIVA AS [Precion C/IVA],i.FechaActualizacion AS Actualizado from Insumos i,Proveedores p,Proveedor_Insumo pi where i.cod_insumo=pi.cod_insumo and pi.id_proveedor=p.id_proveedor ";
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -50,10 +51,12 @@ namespace NovarumPharma
                 Error_Insumo.Clear();
                 if (editar == false)
                 {
+                 
                     string queryIncert = "insert into Insumos(cod_insumo,nombre,un,FechaActualizacion) values('" + i.Cod_Insumo + "','" + i.Nombre + "','" + i.Un + "','"+ i.Fechaactual +"')";
                     dato.ejecutarQuery(queryIncert);
                     dato.actualizaGrid(dgInsumos, strinActualizarGrid, "Insumos");
                 }
+            
                 else
                 {
                     //string queryUpdate = "update Unidades set cod_unidad='" + u.pCod_unidad + "', abreviatura='" + u.pAbreviatura + "', denominacion='" + u.pDenominacion + "', cod_postal=" + u.pCod_postal + ", telefono='" + u.pTelefono + "' where Id=" + Id + ";";
@@ -75,9 +78,10 @@ namespace NovarumPharma
             if (char.IsDigit(e.KeyChar))
             {
                 e.Handled = false;
+                Error_Insumo.Clear();
             }
             //deje usar backespace
-            else if(char.IsControl(e.KeyChar))
+            else if (char.IsControl(e.KeyChar))
             {
                 e.Handled = false;
                 Error_Insumo.Clear();
@@ -86,7 +90,9 @@ namespace NovarumPharma
             {
                 Error_Insumo.SetError(txtCod_insumo, "Ingrese Solo Numeros");
                 e.Handled = true;
+                
             }
+            
            
         }
 
@@ -97,13 +103,28 @@ namespace NovarumPharma
 
         private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
         {
-            dato.actualizaGrid(dgInsumos, strinActualizarGrid + "where i.nombre like'%" + txtBuscar.Text + "%';", "Insumos");
+            dato.actualizaGrid(dgInsumos, strinActualizarGrid + "and i.nombre like'%" + txtBuscar.Text + "%';", "Insumos");
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
             grupNewEdit.Visible = true;
             btnSave.Enabled = true;
+        }
+
+        private void txtEdit1_Click(object sender, EventArgs e)
+        {
+            grupNewEdit.Visible = true;
+            editar = true;
+            cod = dgInsumos.CurrentRow.Cells[0].Value.ToString();
+            txtCod_insumo.Text = dgInsumos.CurrentRow.Cells[0].Value.ToString();
+            txtPnombre.Text = dgInsumos.CurrentRow.Cells[1].Value.ToString();
+            txtNombre.Text = dgInsumos.CurrentRow.Cells[2].Value.ToString();
+            cboUN.Text = dgInsumos.CurrentRow.Cells[3].Value.ToString();
+            txtPrecioSiva.Text = dgInsumos.CurrentRow.Cells[4].Value.ToString();
+            cmbMoneda.Text = dgInsumos.CurrentRow.Cells[5].Value.ToString();
+            txtPrecioSivaDolar.Text = dgInsumos.CurrentRow.Cells[6].Value.ToString();
+            cmbIVA.Text = dgInsumos.CurrentRow.Cells[7].Value.ToString();
         }
     }
 }

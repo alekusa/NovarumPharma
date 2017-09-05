@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminInsumos));
             this.grupNewEdit = new System.Windows.Forms.GroupBox();
-            this.cboUN = new System.Windows.Forms.ComboBox();
-            this.dt = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.cboUN = new System.Windows.Forms.ComboBox();
+            this.dt = new System.Windows.Forms.DateTimePicker();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCod_insumo = new System.Windows.Forms.TextBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.Error_Insumo = new System.Windows.Forms.ErrorProvider(this.components);
@@ -49,6 +49,16 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtEdit1 = new System.Windows.Forms.Button();
+            this.txtPnombre = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPrecioSiva = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbMoneda = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtPrecioSivaDolar = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbIVA = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.grupNewEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Error_Insumo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -57,6 +67,16 @@
             // 
             // grupNewEdit
             // 
+            this.grupNewEdit.Controls.Add(this.label12);
+            this.grupNewEdit.Controls.Add(this.cmbIVA);
+            this.grupNewEdit.Controls.Add(this.label11);
+            this.grupNewEdit.Controls.Add(this.txtPrecioSivaDolar);
+            this.grupNewEdit.Controls.Add(this.label10);
+            this.grupNewEdit.Controls.Add(this.label9);
+            this.grupNewEdit.Controls.Add(this.cmbMoneda);
+            this.grupNewEdit.Controls.Add(this.txtPrecioSiva);
+            this.grupNewEdit.Controls.Add(this.label8);
+            this.grupNewEdit.Controls.Add(this.txtPnombre);
             this.grupNewEdit.Controls.Add(this.label5);
             this.grupNewEdit.Controls.Add(this.label2);
             this.grupNewEdit.Controls.Add(this.label1);
@@ -71,37 +91,13 @@
             this.grupNewEdit.TabIndex = 1;
             this.grupNewEdit.TabStop = false;
             // 
-            // cboUN
-            // 
-            this.cboUN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboUN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboUN.FormattingEnabled = true;
-            this.cboUN.Items.AddRange(new object[] {
-            "Kg",
-            "Gr",
-            "Ltr",
-            "Unidad"});
-            this.cboUN.Location = new System.Drawing.Point(329, 49);
-            this.cboUN.Name = "cboUN";
-            this.cboUN.Size = new System.Drawing.Size(78, 26);
-            this.cboUN.TabIndex = 28;
-            // 
-            // dt
-            // 
-            this.dt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt.Location = new System.Drawing.Point(418, 49);
-            this.dt.Name = "dt";
-            this.dt.Size = new System.Drawing.Size(105, 24);
-            this.dt.TabIndex = 3;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label5.Location = new System.Drawing.Point(415, 39);
+            this.label5.Location = new System.Drawing.Point(944, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(126, 16);
             this.label5.TabIndex = 27;
@@ -113,7 +109,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label2.Location = new System.Drawing.Point(326, 39);
+            this.label2.Location = new System.Drawing.Point(540, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 16);
             this.label2.TabIndex = 27;
@@ -125,20 +121,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label1.Location = new System.Drawing.Point(77, 39);
+            this.label1.Location = new System.Drawing.Point(307, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 16);
+            this.label1.Size = new System.Drawing.Size(66, 16);
             this.label1.TabIndex = 27;
-            this.label1.Text = "Nombre";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(80, 49);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(240, 24);
-            this.txtNombre.TabIndex = 1;
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
+            this.label1.Text = "insumo";
             // 
             // label3
             // 
@@ -148,16 +135,49 @@
             this.label3.ForeColor = System.Drawing.Color.SteelBlue;
             this.label3.Location = new System.Drawing.Point(6, 39);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 16);
+            this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 27;
-            this.label3.Text = "Codigo";
+            this.label3.Text = "Cod";
+            // 
+            // cboUN
+            // 
+            this.cboUN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboUN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboUN.FormattingEnabled = true;
+            this.cboUN.Items.AddRange(new object[] {
+            "Kg",
+            "Gr",
+            "Ltr",
+            "Unidad"});
+            this.cboUN.Location = new System.Drawing.Point(543, 51);
+            this.cboUN.Name = "cboUN";
+            this.cboUN.Size = new System.Drawing.Size(78, 26);
+            this.cboUN.TabIndex = 28;
+            // 
+            // dt
+            // 
+            this.dt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt.Location = new System.Drawing.Point(947, 51);
+            this.dt.Name = "dt";
+            this.dt.Size = new System.Drawing.Size(105, 24);
+            this.dt.TabIndex = 3;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(297, 51);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(240, 24);
+            this.txtNombre.TabIndex = 1;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtCod_insumo
             // 
             this.txtCod_insumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCod_insumo.Location = new System.Drawing.Point(9, 49);
             this.txtCod_insumo.Name = "txtCod_insumo";
-            this.txtCod_insumo.Size = new System.Drawing.Size(54, 24);
+            this.txtCod_insumo.Size = new System.Drawing.Size(36, 24);
             this.txtCod_insumo.TabIndex = 0;
             this.txtCod_insumo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCod_insumo_KeyPress);
             // 
@@ -224,11 +244,13 @@
             this.dgInsumos.AllowUserToDeleteRows = false;
             this.dgInsumos.AllowUserToResizeColumns = false;
             this.dgInsumos.AllowUserToResizeRows = false;
+            this.dgInsumos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgInsumos.Location = new System.Drawing.Point(12, 94);
             this.dgInsumos.Name = "dgInsumos";
             this.dgInsumos.RowHeadersVisible = false;
-            this.dgInsumos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgInsumos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgInsumos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgInsumos.Size = new System.Drawing.Size(1080, 178);
             this.dgInsumos.TabIndex = 4;
             // 
@@ -265,6 +287,117 @@
             this.txtEdit1.Size = new System.Drawing.Size(56, 55);
             this.txtEdit1.TabIndex = 2;
             this.txtEdit1.UseVisualStyleBackColor = true;
+            this.txtEdit1.Click += new System.EventHandler(this.txtEdit1_Click);
+            // 
+            // txtPnombre
+            // 
+            this.txtPnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPnombre.Location = new System.Drawing.Point(51, 51);
+            this.txtPnombre.Name = "txtPnombre";
+            this.txtPnombre.Size = new System.Drawing.Size(240, 24);
+            this.txtPnombre.TabIndex = 29;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label8.Location = new System.Drawing.Point(61, 39);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 16);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Proveedor";
+            // 
+            // txtPrecioSiva
+            // 
+            this.txtPrecioSiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioSiva.Location = new System.Drawing.Point(627, 51);
+            this.txtPrecioSiva.Name = "txtPrecioSiva";
+            this.txtPrecioSiva.Size = new System.Drawing.Size(84, 24);
+            this.txtPrecioSiva.TabIndex = 31;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label9.Location = new System.Drawing.Point(619, 39);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(99, 16);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "Precio s/iva";
+            // 
+            // cmbMoneda
+            // 
+            this.cmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMoneda.FormattingEnabled = true;
+            this.cmbMoneda.Items.AddRange(new object[] {
+            "Dolar",
+            "Pesos"});
+            this.cmbMoneda.Location = new System.Drawing.Point(723, 49);
+            this.cmbMoneda.Name = "cmbMoneda";
+            this.cmbMoneda.Size = new System.Drawing.Size(58, 26);
+            this.cmbMoneda.TabIndex = 33;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label10.Location = new System.Drawing.Point(716, 39);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 16);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Moneda";
+            // 
+            // txtPrecioSivaDolar
+            // 
+            this.txtPrecioSivaDolar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioSivaDolar.Location = new System.Drawing.Point(791, 53);
+            this.txtPrecioSivaDolar.Name = "txtPrecioSivaDolar";
+            this.txtPrecioSivaDolar.Size = new System.Drawing.Size(84, 24);
+            this.txtPrecioSivaDolar.TabIndex = 35;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label11.Location = new System.Drawing.Point(790, 39);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(85, 16);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Pre s/iva $";
+            // 
+            // cmbIVA
+            // 
+            this.cmbIVA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIVA.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbIVA.FormattingEnabled = true;
+            this.cmbIVA.Items.AddRange(new object[] {
+            "21.00",
+            "10.50"});
+            this.cmbIVA.Location = new System.Drawing.Point(880, 53);
+            this.cmbIVA.Name = "cmbIVA";
+            this.cmbIVA.Size = new System.Drawing.Size(58, 26);
+            this.cmbIVA.TabIndex = 37;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label12.Location = new System.Drawing.Point(881, 41);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(33, 16);
+            this.label12.TabIndex = 38;
+            this.label12.Text = "IVA";
             // 
             // AdminInsumos
             // 
@@ -314,5 +447,15 @@
         private System.Windows.Forms.DataGridView dgInsumos;
         private System.Windows.Forms.ComboBox cboUN;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtPnombre;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtPrecioSiva;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbMoneda;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtPrecioSivaDolar;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cmbIVA;
     }
 }
