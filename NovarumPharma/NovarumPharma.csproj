@@ -64,6 +64,12 @@
     <Compile Include="AdminInsumos.Designer.cs">
       <DependentUpon>AdminInsumos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Datos.cs" />
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -72,10 +78,16 @@
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Insumos.cs" />
+    <Compile Include="PrecioDolar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedor.cs" />
+    <Compile Include="ProveedorInsumo.cs" />
     <EmbeddedResource Include="AdminInsumos.resx">
       <DependentUpon>AdminInsumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

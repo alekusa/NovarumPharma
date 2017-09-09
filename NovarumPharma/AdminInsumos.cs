@@ -11,15 +11,19 @@ namespace NovarumPharma
 {
     public partial class AdminInsumos : Form
     {
+        
+        Datos dato = new Datos();
+        Boolean editar;
+        string cod;
+        string strinActualizarGrid = "select i.cod_insumo AS [Cod Nº],p.Nombre AS Proveedor,i.nombre AS Nombre,pi.un AS UN,pi.precioSinIVAmonedaCotizada AS [Precio Sin IVA],pi.moneda AS Moneda,pi.precioSinIVAenPesos AS [Precios S/IVA en $],pi.iva AS IVA,pi.precioConIVA AS [Precion C/IVA],pi.FechaActualizacion AS Actualizado FROM Insumos i,Proveedores p,Proveedor_Insumo pi where i.cod_insumo=pi.cod_insumo and pi.id_proveedor=p.id_proveedor ";
+
         private void FormAdminInsumos_Load(object sender, EventArgs e)
         {
+            txtPrecioDolar.Text = Convert.ToString(dato.CalcularDolar());
             dato.actualizaGrid(dgInsumos, strinActualizarGrid, "Insumos");
             if (editar == false)
             { grupNewEdit.Visible = false; }
         }
-        Datos dato = new Datos();
-        Boolean editar;
-        string cod;
         public AdminInsumos()
         {
             InitializeComponent();
@@ -38,40 +42,40 @@ namespace NovarumPharma
                 Instancia = value;
             }
         }
-        string strinActualizarGrid = "select i.cod_insumo AS [Cod Nº],p.Nombre AS Proveedor,i.nombre AS Nombre,i.un AS UN,pi.precioSinIVAmonedaCotizada AS [Precio Sin IVA],pi.moneda AS Moneda,pi.precioSinIVAenPesos AS [Precios S/IVA en $],pi.iva AS IVA,pi.precioConIVA AS [Precion C/IVA],i.FechaActualizacion AS Actualizado from Insumos i,Proveedores p,Proveedor_Insumo pi where i.cod_insumo=pi.cod_insumo and pi.id_proveedor=p.id_proveedor ";
-
+        
         private void btnSave_Click(object sender, EventArgs e)
         {
+            Insumos i = new Insumos();
+            ProveedorInsumo pi = new ProveedorInsumo();
+            Proveedor p = new Proveedor();
 
-                Insumos i = new Insumos();
-                i.Cod_Insumo = Convert.ToInt32(txtCod_insumo.Text);
-                i.Nombre = txtNombre.Text;
-                i.Un = cboUN.SelectedItem.ToString();
-                i.Fechaactual = dt.Value;
-                Error_Insumo.Clear();
-                if (editar == false)
-                {
-                 
-                    string queryIncert = "insert into Insumos(cod_insumo,nombre,un,FechaActualizacion) values('" + i.Cod_Insumo + "','" + i.Nombre + "','" + i.Un + "','"+ i.Fechaactual +"')";
-                    dato.ejecutarQuery(queryIncert);
-                    dato.actualizaGrid(dgInsumos, strinActualizarGrid, "Insumos");
-                }
+            p.NombreProveedor = txtPnombre.Text;
+            i.Nombre = txtNombre.Text;
+            pi.Un = cboUN.SelectedItem.ToString();
+            pi.Iva = Convert.ToDouble(cmbIVA.SelectedItem.ToString());
+            pi.Moneda = cmbMoneda.SelectedItem.ToString();
+            pi.PrecioSinIVAenPesos = Convert.ToDouble(txtPrecioSiva.Text);
+            pi.Moneda = cmbMoneda.SelectedItem.ToString();
+            pi.FechaActualizacion = dt.Value;
+            pi.PrecioSinIVAmonedaCotizada = pi.PrecioSinIVAenPesos / dato.CalcularDolar();
+           
+                string queryUpdate = "UPDATE Proveedor_Insumo pi, Insumos i, Proveedores p SET p.nombre = '"+ p.NombreProveedor +"', i.nombre = '"+ i.Nombre+"', pi.un = '"+pi.Un+ "', pi.precioSinIVAenPesos = '" + pi.PrecioSinIVAenPesos + "', pi.iva = '" + pi.Iva + "', pi.moneda = '" + pi.Moneda + "', pi.FechaActualizacion = '" + pi.FechaActualizacion+ "', pi.precioSinIVAmonedaCotizada = '" + pi.PrecioSinIVAmonedaCotizada + "' WHERE pi.cod_insumo=" + cod+" and i.cod_insumo = pi.cod_insumo and pi.id_proveedor = p.id_proveedor";
+                dato.ejecutarQuery(queryUpdate);
+                dato.actualizaGrid(dgInsumos, strinActualizarGrid, "Proveedor_Insumo");
             
-                else
-                {
-                    //string queryUpdate = "update Unidades set cod_unidad='" + u.pCod_unidad + "', abreviatura='" + u.pAbreviatura + "', denominacion='" + u.pDenominacion + "', cod_postal=" + u.pCod_postal + ", telefono='" + u.pTelefono + "' where Id=" + Id + ";";
-                    //dato.ejecutarQuery(queryUpdate);
-                    //dato.actualizaGrid(dgUnidades, strinActualizarGrid, "Unidades");
-                }
-                editar = false;
-                txtCod_insumo.Clear();
-                txtNombre.Clear();
-                
+            txtCod_insumo.Clear();
+            txtPnombre.Clear();
+            txtNombre.Clear();
+            txtPrecioSiva.Clear();
+            txtPrecioSivaDolar.Clear();
+            txtPrecionCiva.Clear();
+
+
 
 
         }
-        
 
+        //validaciones
         private void txtCod_insumo_KeyPress(object sender, KeyPressEventArgs e)
         {
             //solo numeros
@@ -101,19 +105,13 @@ namespace NovarumPharma
             //
         }
 
-        private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
-        {
-            dato.actualizaGrid(dgInsumos, strinActualizarGrid + "and i.nombre like'%" + txtBuscar.Text + "%';", "Insumos");
-        }
+        
 
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            grupNewEdit.Visible = true;
-            btnSave.Enabled = true;
-        }
+        
 
         private void txtEdit1_Click(object sender, EventArgs e)
         {
+            btnSave.Enabled = true;
             grupNewEdit.Visible = true;
             editar = true;
             cod = dgInsumos.CurrentRow.Cells[0].Value.ToString();
@@ -121,10 +119,22 @@ namespace NovarumPharma
             txtPnombre.Text = dgInsumos.CurrentRow.Cells[1].Value.ToString();
             txtNombre.Text = dgInsumos.CurrentRow.Cells[2].Value.ToString();
             cboUN.Text = dgInsumos.CurrentRow.Cells[3].Value.ToString();
-            txtPrecioSiva.Text = dgInsumos.CurrentRow.Cells[4].Value.ToString();
+            txtPrecioSiva.Text = dgInsumos.CurrentRow.Cells[6].Value.ToString();
             cmbMoneda.Text = dgInsumos.CurrentRow.Cells[5].Value.ToString();
-            txtPrecioSivaDolar.Text = dgInsumos.CurrentRow.Cells[6].Value.ToString();
+            txtPrecioSivaDolar.Text = dgInsumos.CurrentRow.Cells[4].Value.ToString();
             cmbIVA.Text = dgInsumos.CurrentRow.Cells[7].Value.ToString();
+            txtPrecionCiva.Text = dgInsumos.CurrentRow.Cells[8].Value.ToString();
+            dt.Text = dgInsumos.CurrentRow.Cells[9].Value.ToString();
+        }
+
+        private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+            dato.actualizaGrid(dgInsumos, strinActualizarGrid + "and i.nombre like'%" + txtBuscar.Text + "%';", "Insumos");
+        }
+
+        private void txtbuscarProveedor_KeyUp(object sender, KeyEventArgs e)
+        {
+            dato.actualizaGrid(dgInsumos, strinActualizarGrid + "and p.Nombre like'%" + txtbuscarProveedor.Text + "%';", "Insumos");
         }
     }
 }

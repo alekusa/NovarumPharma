@@ -14,6 +14,7 @@ namespace NovarumPharma
         OleDbConnection conexion;
         OleDbCommand comando = new OleDbCommand();
         OleDbDataReader dr;
+
         public OleDbDataReader pDr
         {
             get { return dr; }
@@ -49,7 +50,7 @@ namespace NovarumPharma
         }
         public void cargarComboBox(ComboBox comBox, string tabla, string dato, string pk)
         {
-            //combo cargado con datatable
+            //box cargado con datatable
             DataTable dt = new DataTable();
             this.Conectar();
             comando.CommandText = "select * from " + tabla;
@@ -60,13 +61,18 @@ namespace NovarumPharma
             comBox.DisplayMember = dato;
             comBox.ValueMember = pk;
         }
-        public void leerTabla(string tabla)
+        public double CalcularDolar()
         {
-            dr = null;
+            double resultado;
+            string qeri = "SELECT preciodolar FROM CotizacionDolar";
             Conectar();
-            comando.CommandText = "select * from " + tabla;
-            dr = comando.ExecuteReader();
+            OleDbCommand cmd = new OleDbCommand(qeri, conexion);
+            resultado = Convert.ToDouble(cmd.ExecuteScalar());
+            desconectar();
+            return resultado;
+            
         }
+        
 
 
     }
