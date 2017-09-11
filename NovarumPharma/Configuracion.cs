@@ -38,8 +38,10 @@ namespace NovarumPharma
             PrecioDolar pd = new PrecioDolar();
             pd.Preciodolar = Convert.ToDouble(txtConfigDolar.Text);
 
-            string queryUpdate = "UPDATE CotizacionDolar SET preciodolar ='"+ pd.Preciodolar + "' WHERE id_dolar=1;";
-            dato.ejecutarQuery(queryUpdate);
+            string updateDolar = "UPDATE Proveedor_Insumo SET preciodolar ='"+ pd.Preciodolar + "' WHERE moneda='Dolar';";
+            string updatePesos = "UPDATE Proveedor_Insumo SET preciodolar = 1 WHERE moneda='Pesos';";
+            dato.ejecutarQuery(updateDolar);
+            dato.ejecutarQuery(updatePesos);
             txtConfigDolar.Clear();
             
 

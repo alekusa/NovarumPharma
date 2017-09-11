@@ -15,7 +15,7 @@ namespace NovarumPharma
         Datos dato = new Datos();
         Boolean editar;
         string cod;
-        string strinActualizarGrid = "select i.cod_insumo AS [Cod Nº],p.Nombre AS Proveedor,i.nombre AS Nombre,pi.un AS UN,pi.precioSinIVAmonedaCotizada AS [Precio Sin IVA],pi.moneda AS Moneda,pi.precioSinIVAenPesos AS [Precios S/IVA en $],pi.iva AS IVA,pi.precioConIVA AS [Precion C/IVA],pi.FechaActualizacion AS Actualizado FROM Insumos i,Proveedores p,Proveedor_Insumo pi where i.cod_insumo=pi.cod_insumo and pi.id_proveedor=p.id_proveedor ";
+        string strinActualizarGrid = "select i.cod_insumo AS [Cod Nº],p.Nombre AS Proveedor,i.nombre AS Nombre,pi.un AS UN,pi.precioSinIVAmonedaCotizada AS [Precio S/iva en moneda cotizada],pi.moneda AS Moneda,pi.precioSinIVAenPesos AS [Precios S/IVA en $],pi.iva AS IVA,pi.precioConIVA AS [Precion C/IVA],pi.FechaActualizacion AS Actualizado FROM Insumos i,Proveedores p,Proveedor_Insumo pi where i.cod_insumo=pi.cod_insumo and pi.id_proveedor=p.id_proveedor ";
 
         private void FormAdminInsumos_Load(object sender, EventArgs e)
         {
@@ -54,12 +54,12 @@ namespace NovarumPharma
             pi.Un = cboUN.SelectedItem.ToString();
             pi.Iva = Convert.ToDouble(cmbIVA.SelectedItem.ToString());
             pi.Moneda = cmbMoneda.SelectedItem.ToString();
-            pi.PrecioSinIVAenPesos = Convert.ToDouble(txtPrecioSiva.Text);
+            pi.PrecioSinIVAmonedaCotizada = Convert.ToDouble(txtPrecioSivaDolar.Text);
             pi.Moneda = cmbMoneda.SelectedItem.ToString();
             pi.FechaActualizacion = dt.Value;
-            pi.PrecioSinIVAmonedaCotizada = pi.PrecioSinIVAenPesos / dato.CalcularDolar();
+            //pi.PrecioSinIVAenPesos = pi.PrecioSinIVAmonedaCotizada * dato.CalcularDolar();
            
-                string queryUpdate = "UPDATE Proveedor_Insumo pi, Insumos i, Proveedores p SET p.nombre = '"+ p.NombreProveedor +"', i.nombre = '"+ i.Nombre+"', pi.un = '"+pi.Un+ "', pi.precioSinIVAenPesos = '" + pi.PrecioSinIVAenPesos + "', pi.iva = '" + pi.Iva + "', pi.moneda = '" + pi.Moneda + "', pi.FechaActualizacion = '" + pi.FechaActualizacion+ "', pi.precioSinIVAmonedaCotizada = '" + pi.PrecioSinIVAmonedaCotizada + "' WHERE pi.cod_insumo=" + cod+" and i.cod_insumo = pi.cod_insumo and pi.id_proveedor = p.id_proveedor";
+                string queryUpdate = "UPDATE Proveedor_Insumo pi, Insumos i, Proveedores p SET p.nombre = '"+ p.NombreProveedor +"', i.nombre = '"+ i.Nombre+"', pi.un = '"+pi.Un+ "', pi.precioSinIVAmonedaCotizada = '" + pi.PrecioSinIVAmonedaCotizada + "', pi.iva = '" + pi.Iva + "', pi.moneda = '" + pi.Moneda + "', pi.FechaActualizacion = '" + pi.FechaActualizacion+ "' WHERE pi.cod_insumo=" + cod+" and i.cod_insumo = pi.cod_insumo and pi.id_proveedor = p.id_proveedor";
                 dato.ejecutarQuery(queryUpdate);
                 dato.actualizaGrid(dgInsumos, strinActualizarGrid, "Proveedor_Insumo");
             
@@ -119,9 +119,9 @@ namespace NovarumPharma
             txtPnombre.Text = dgInsumos.CurrentRow.Cells[1].Value.ToString();
             txtNombre.Text = dgInsumos.CurrentRow.Cells[2].Value.ToString();
             cboUN.Text = dgInsumos.CurrentRow.Cells[3].Value.ToString();
-            txtPrecioSiva.Text = dgInsumos.CurrentRow.Cells[6].Value.ToString();
-            cmbMoneda.Text = dgInsumos.CurrentRow.Cells[5].Value.ToString();
             txtPrecioSivaDolar.Text = dgInsumos.CurrentRow.Cells[4].Value.ToString();
+            cmbMoneda.Text = dgInsumos.CurrentRow.Cells[5].Value.ToString();
+            txtPrecioSiva.Text = dgInsumos.CurrentRow.Cells[6].Value.ToString();
             cmbIVA.Text = dgInsumos.CurrentRow.Cells[7].Value.ToString();
             txtPrecionCiva.Text = dgInsumos.CurrentRow.Cells[8].Value.ToString();
             dt.Text = dgInsumos.CurrentRow.Cells[9].Value.ToString();

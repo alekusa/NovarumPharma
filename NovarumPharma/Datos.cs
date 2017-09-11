@@ -64,7 +64,7 @@ namespace NovarumPharma
         public double CalcularDolar()
         {
             double resultado;
-            string qeri = "SELECT preciodolar FROM CotizacionDolar";
+            string qeri = "SELECT preciodolar FROM Proveedor_Insumo";
             Conectar();
             OleDbCommand cmd = new OleDbCommand(qeri, conexion);
             resultado = Convert.ToDouble(cmd.ExecuteScalar());
