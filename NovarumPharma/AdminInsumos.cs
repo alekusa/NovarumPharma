@@ -15,7 +15,7 @@ namespace NovarumPharma
         Datos dato = new Datos();
         Boolean editar;
         string cod;
-        string strinActualizarGrid = "select i.cod_insumo AS [Cod Nº],p.Nombre AS Proveedor,i.nombre AS Nombre,pi.un AS UN,pi.precioSinIVAmonedaCotizada AS [Precio S/iva en moneda cotizada],pi.moneda AS Moneda,pi.precioSinIVAenPesos AS [Precios S/IVA en $],pi.iva AS IVA,pi.precioConIVA AS [Precion C/IVA],pi.FechaActualizacion AS Actualizado FROM Insumos i,Proveedores p,Proveedor_Insumo pi where i.cod_insumo=pi.cod_insumo and pi.id_proveedor=p.id_proveedor ";
+        string strinActualizarGrid = "select i.cod_insumo AS [Cod Nº],p.Nombre AS Proveedor,i.nombre AS Nombre,pi.un AS UN,pi.precioSinIVAmonedaCotizada AS [Precio S/iva en moneda cotizada],pi.moneda AS Moneda,pi.precioSinIVAenPesos AS [Precios S/IVA en $],pi.iva AS IVA,pi.precioConIVA AS [Precion C/IVA],pi.FechaActualizacion AS Actualizado FROM Insumos i,Proveedores p,Proveedor_Insumo pi where i.cod_insumo=pi.cod_insumo and pi.id_proveedor=p.id_proveedor ORDER BY i.cod_insumo ASC ";
 
         private void FormAdminInsumos_Load(object sender, EventArgs e)
         {
@@ -57,12 +57,20 @@ namespace NovarumPharma
             pi.PrecioSinIVAmonedaCotizada = Convert.ToDouble(txtPrecioSivaDolar.Text);
             pi.Moneda = cmbMoneda.SelectedItem.ToString();
             pi.FechaActualizacion = dt.Value;
-            //pi.PrecioSinIVAenPesos = pi.PrecioSinIVAmonedaCotizada * dato.CalcularDolar();
-           
-                string queryUpdate = "UPDATE Proveedor_Insumo pi, Insumos i, Proveedores p SET p.nombre = '"+ p.NombreProveedor +"', i.nombre = '"+ i.Nombre+"', pi.un = '"+pi.Un+ "', pi.precioSinIVAmonedaCotizada = '" + pi.PrecioSinIVAmonedaCotizada + "', pi.iva = '" + pi.Iva + "', pi.moneda = '" + pi.Moneda + "', pi.FechaActualizacion = '" + pi.FechaActualizacion+ "' WHERE pi.cod_insumo=" + cod+" and i.cod_insumo = pi.cod_insumo and pi.id_proveedor = p.id_proveedor";
+            pi.Preciodolar = Convert.ToDouble(dato.CalcularDolar());
+            string dolar = "Dolar";
+            if (dolar == Convert.ToString(cmbMoneda.Text))
+            {
+                string queryUpdate = "UPDATE Proveedor_Insumo pi, Insumos i, Proveedores p SET p.nombre = '" + p.NombreProveedor + "', i.nombre = '" + i.Nombre + "', pi.un = '" + pi.Un + "', pi.precioSinIVAmonedaCotizada = '" + pi.PrecioSinIVAmonedaCotizada + "', pi.iva = '" + pi.Iva + "', pi.moneda = '" + pi.Moneda + "', pi.FechaActualizacion = '" + pi.FechaActualizacion + "', pi.preciodolar = '" + pi.Preciodolar + "' WHERE pi.cod_insumo=" + cod + " and i.cod_insumo = pi.cod_insumo and pi.id_proveedor = p.id_proveedor";
                 dato.ejecutarQuery(queryUpdate);
                 dato.actualizaGrid(dgInsumos, strinActualizarGrid, "Proveedor_Insumo");
-            
+            }
+            else
+            {
+                string queryUpdate = "UPDATE Proveedor_Insumo pi, Insumos i, Proveedores p SET p.nombre = '" + p.NombreProveedor + "', i.nombre = '" + i.Nombre + "', pi.un = '" + pi.Un + "', pi.precioSinIVAmonedaCotizada = '" + pi.PrecioSinIVAmonedaCotizada + "', pi.iva = '" + pi.Iva + "', pi.moneda = '" + pi.Moneda + "', pi.FechaActualizacion = '" + pi.FechaActualizacion + "', pi.preciodolar = 1 WHERE pi.cod_insumo=" + cod + " and i.cod_insumo = pi.cod_insumo and pi.id_proveedor = p.id_proveedor";
+                dato.ejecutarQuery(queryUpdate);
+                dato.actualizaGrid(dgInsumos, strinActualizarGrid, "Proveedor_Insumo");
+            }
             txtCod_insumo.Clear();
             txtPnombre.Clear();
             txtNombre.Clear();

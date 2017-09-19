@@ -48,6 +48,7 @@ namespace NovarumPharma
             dg.DataMember = tabla;
             desconectar();
         }
+
         public void cargarComboBox(ComboBox comBox, string tabla, string dato, string pk)
         {
             //box cargado con datatable
@@ -64,14 +65,33 @@ namespace NovarumPharma
         public double CalcularDolar()
         {
             double resultado;
-            string qeri = "SELECT preciodolar FROM Proveedor_Insumo";
+            string qeri = "SELECT preciodolar FROM Proveedor_Insumo WHERE moneda = 'Dolar'";
             Conectar();
             OleDbCommand cmd = new OleDbCommand(qeri, conexion);
             resultado = Convert.ToDouble(cmd.ExecuteScalar());
             desconectar();
             return resultado;
-            
+
         }
+        public void cargarTXT(TextBox tx,TextBox tx1, TextBox tx2, TextBox tx3)
+            {
+                
+                Conectar();
+                string sentencia = "SELECT p.Nombre,i.nombre,cod_cat FROM Proveedores p, Proveedor_Insumo pi, Insumos i WHERE p.id_proveedor=pi.id_proveedor and pi.cod_insumo=i.cod_insumo and i.cod_insumo="+tx.Text+"";
+                OleDbCommand comando = new OleDbCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("", tx.Text);
+                OleDbDataReader dr = comando.ExecuteReader();
+                    if (dr.Read())
+                    {
+                
+                        tx1.Text = Convert.ToString(dr["p.Nombre"]);
+                        tx2.Text = Convert.ToString(dr["i.nombre"]);
+                        tx3.Text = Convert.ToString(dr["cod_cat"]);
+
+                    }
+                    dr.Close();
+            }
+        
         
 
 

@@ -208,7 +208,7 @@
             // 
             this.txtPrecioSiva.Enabled = false;
             this.txtPrecioSiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioSiva.Location = new System.Drawing.Point(785, 154);
+            this.txtPrecioSiva.Location = new System.Drawing.Point(789, 153);
             this.txtPrecioSiva.Name = "txtPrecioSiva";
             this.txtPrecioSiva.Size = new System.Drawing.Size(115, 29);
             this.txtPrecioSiva.TabIndex = 4;
@@ -438,9 +438,9 @@
             // 
             this.txtPrecioDolar.Enabled = false;
             this.txtPrecioDolar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioDolar.Location = new System.Drawing.Point(992, 18);
+            this.txtPrecioDolar.Location = new System.Drawing.Point(934, 27);
             this.txtPrecioDolar.Name = "txtPrecioDolar";
-            this.txtPrecioDolar.Size = new System.Drawing.Size(72, 29);
+            this.txtPrecioDolar.Size = new System.Drawing.Size(130, 29);
             this.txtPrecioDolar.TabIndex = 6;
             // 
             // label4

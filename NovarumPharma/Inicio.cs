@@ -22,7 +22,21 @@ namespace NovarumPharma
             AdminInsumos.DefInstancia.Show();
         }
 
-        private void btnConfig_Click(object sender, EventArgs e)
+        
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ProductoForms.DefInstancia.MdiParent = this;
+            ProductoForms.DefInstancia.Show();
+        }
+
+        private void administrarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ProductoForms.DefInstancia.MdiParent = this;
+            ProductoForms.DefInstancia.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
             Configuracion.DefInstancia.MdiParent = this;
             Configuracion.DefInstancia.Show();
