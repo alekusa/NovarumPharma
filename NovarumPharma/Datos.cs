@@ -73,12 +73,12 @@ namespace NovarumPharma
             return resultado;
 
         }
-        public void cargarTXT(TextBox tx,TextBox tx1, TextBox tx2, TextBox tx3)
+        public void cargarTXT(TextBox tx,TextBox tx1, TextBox tx2, TextBox tx3, TextBox tx4, TextBox tx5)
             {
                 
                 Conectar();
-                string sentencia = "SELECT p.Nombre,i.nombre,cod_cat FROM Proveedores p, Proveedor_Insumo pi, Insumos i WHERE p.id_proveedor=pi.id_proveedor and pi.cod_insumo=i.cod_insumo and i.cod_insumo="+tx.Text+"";
-                OleDbCommand comando = new OleDbCommand(sentencia, conexion);
+                string BusquedaPorCodInsumo = "SELECT p.Nombre,i.nombre,cod_cat,precioConIVA,un FROM Proveedores p, Proveedor_Insumo pi, Insumos i WHERE p.id_proveedor=pi.id_proveedor and pi.cod_insumo=i.cod_insumo and i.cod_insumo=" + tx.Text+"";
+                OleDbCommand comando = new OleDbCommand(BusquedaPorCodInsumo, conexion);
                 comando.Parameters.AddWithValue("", tx.Text);
                 OleDbDataReader dr = comando.ExecuteReader();
                     if (dr.Read())
@@ -87,11 +87,59 @@ namespace NovarumPharma
                         tx1.Text = Convert.ToString(dr["p.Nombre"]);
                         tx2.Text = Convert.ToString(dr["i.nombre"]);
                         tx3.Text = Convert.ToString(dr["cod_cat"]);
+                        tx4.Text = Convert.ToString(dr["precioConIVA"]);
+                        tx5.Text = Convert.ToString(dr["un"]);
 
                     }
                     dr.Close();
             }
-        
+        public string validarExistencia(int ID1, int ID2)
+        {
+            conexion.Close();
+            string comparacion1 = "";
+            string comparacion2 = "";
+            string resultado = "";
+            
+            string dato1 = "SELECT * FROM Insumos_Receta WHERE cod_insumo=" + ID1 + "";
+            OleDbCommand comando = new OleDbCommand(dato1, conexion);
+            conexion.Open();
+            OleDbDataReader leer = comando.ExecuteReader();
+            
+            if (leer.Read() == true)
+            {
+                comparacion1 = "esta";
+            }
+            else
+            {
+                comparacion1 = "no";
+            }
+            leer.Close();
+            string dato2 = "select * FROM Insumos_Receta WHERE id_receta='" + ID2 + "'";
+            OleDbCommand comando1 = new OleDbCommand(dato1, conexion);
+            
+            OleDbDataReader leer1 = comando.ExecuteReader();
+            if (leer1.Read() == true)
+            {
+                comparacion2 = "esta";
+            }
+            else
+            {
+                comparacion2 = "no";
+            }
+            if((comparacion1 == "esta") && (comparacion2 == "esta"))
+                {
+                    resultado = "repetido";
+                }
+            else
+                { 
+                    resultado = "Norepetido";
+                }
+            conexion.Close();
+            
+            return resultado;
+            
+            
+        }
         
 
 

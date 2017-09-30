@@ -29,10 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.PictureBox pictureBox2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductoForms));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.txtCosto = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.txtPrecioUnitarioPesos = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.TxtUnidad = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.txtMgr = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txtGr = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtkllt = new System.Windows.Forms.TextBox();
             this.dgProductos = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,7 +71,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtUnidadesAcotizar = new System.Windows.Forms.TextBox();
             this.txtPresentacionGrMl = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtcantPedidaKiloLitro = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -117,45 +131,48 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.eRP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.label42 = new System.Windows.Forms.Label();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.textBox33 = new System.Windows.Forms.TextBox();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eRP)).BeginInit();
             this.SuspendLayout();
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            pictureBox2.Location = new System.Drawing.Point(615, 8);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(28, 29);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 60;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(pictureBox2);
             this.panel1.Controls.Add(this.label44);
-            this.panel1.Controls.Add(this.textBox33);
+            this.panel1.Controls.Add(this.txtCosto);
             this.panel1.Controls.Add(this.label43);
-            this.panel1.Controls.Add(this.textBox32);
+            this.panel1.Controls.Add(this.txtPrecioUnitarioPesos);
             this.panel1.Controls.Add(this.label42);
-            this.panel1.Controls.Add(this.textBox31);
+            this.panel1.Controls.Add(this.TxtUnidad);
             this.panel1.Controls.Add(this.label37);
-            this.panel1.Controls.Add(this.textBox25);
+            this.panel1.Controls.Add(this.txtMgr);
             this.panel1.Controls.Add(this.label34);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txtGr);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtkllt);
             this.panel1.Controls.Add(this.dgProductos);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -173,6 +190,144 @@
             this.panel1.Size = new System.Drawing.Size(856, 470);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(807, -2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 41);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 37;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.BackColor = System.Drawing.Color.Transparent;
+            this.label44.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label44.Location = new System.Drawing.Point(745, 37);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(40, 17);
+            this.label44.TabIndex = 48;
+            this.label44.Text = "Costo";
+            // 
+            // txtCosto
+            // 
+            this.txtCosto.Enabled = false;
+            this.txtCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCosto.Location = new System.Drawing.Point(729, 52);
+            this.txtCosto.Name = "txtCosto";
+            this.txtCosto.Size = new System.Drawing.Size(110, 24);
+            this.txtCosto.TabIndex = 47;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.BackColor = System.Drawing.Color.Transparent;
+            this.label43.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label43.Location = new System.Drawing.Point(404, 39);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(76, 15);
+            this.label43.TabIndex = 46;
+            this.label43.Text = "Px UNIT en $";
+            // 
+            // txtPrecioUnitarioPesos
+            // 
+            this.txtPrecioUnitarioPesos.Enabled = false;
+            this.txtPrecioUnitarioPesos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioUnitarioPesos.Location = new System.Drawing.Point(405, 52);
+            this.txtPrecioUnitarioPesos.Name = "txtPrecioUnitarioPesos";
+            this.txtPrecioUnitarioPesos.Size = new System.Drawing.Size(86, 24);
+            this.txtPrecioUnitarioPesos.TabIndex = 45;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.BackColor = System.Drawing.Color.Transparent;
+            this.label42.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label42.Location = new System.Drawing.Point(662, -2);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(25, 15);
+            this.label42.TabIndex = 44;
+            this.label42.Text = "UN";
+            // 
+            // TxtUnidad
+            // 
+            this.TxtUnidad.Enabled = false;
+            this.TxtUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtUnidad.Location = new System.Drawing.Point(660, 11);
+            this.TxtUnidad.Name = "TxtUnidad";
+            this.TxtUnidad.Size = new System.Drawing.Size(48, 24);
+            this.TxtUnidad.TabIndex = 43;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.BackColor = System.Drawing.Color.Transparent;
+            this.label37.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label37.Location = new System.Drawing.Point(300, 37);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(30, 17);
+            this.label37.TabIndex = 42;
+            this.label37.Text = "Mgr";
+            // 
+            // txtMgr
+            // 
+            this.txtMgr.Enabled = false;
+            this.txtMgr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMgr.Location = new System.Drawing.Point(294, 52);
+            this.txtMgr.Name = "txtMgr";
+            this.txtMgr.Size = new System.Drawing.Size(104, 24);
+            this.txtMgr.TabIndex = 41;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.BackColor = System.Drawing.Color.Transparent;
+            this.label34.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label34.Location = new System.Drawing.Point(200, 37);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(22, 17);
+            this.label34.TabIndex = 40;
+            this.label34.Text = "Gr";
+            // 
+            // txtGr
+            // 
+            this.txtGr.Enabled = false;
+            this.txtGr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGr.Location = new System.Drawing.Point(194, 52);
+            this.txtGr.Name = "txtGr";
+            this.txtGr.Size = new System.Drawing.Size(94, 24);
+            this.txtGr.TabIndex = 39;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label7.Location = new System.Drawing.Point(85, 37);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 17);
+            this.label7.TabIndex = 38;
+            this.label7.Text = "Kl / Lts";
+            // 
+            // txtkllt
+            // 
+            this.txtkllt.Enabled = false;
+            this.txtkllt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtkllt.Location = new System.Drawing.Point(75, 52);
+            this.txtkllt.Name = "txtkllt";
+            this.txtkllt.Size = new System.Drawing.Size(113, 24);
+            this.txtkllt.TabIndex = 37;
+            // 
             // dgProductos
             // 
             this.dgProductos.AllowUserToAddRows = false;
@@ -180,30 +335,30 @@
             this.dgProductos.AllowUserToResizeColumns = false;
             this.dgProductos.AllowUserToResizeRows = false;
             this.dgProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgProductos.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgProductos.Location = new System.Drawing.Point(6, 44);
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgProductos.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgProductos.Location = new System.Drawing.Point(6, 82);
             this.dgProductos.MultiSelect = false;
             this.dgProductos.Name = "dgProductos";
             this.dgProductos.RowHeadersVisible = false;
             this.dgProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgProductos.Size = new System.Drawing.Size(848, 393);
+            this.dgProductos.Size = new System.Drawing.Size(848, 355);
             this.dgProductos.TabIndex = 36;
             // 
             // label5
@@ -224,7 +379,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Perpetua Titling MT", 6F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label4.Location = new System.Drawing.Point(237, 3);
+            this.label4.Location = new System.Drawing.Point(348, 3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 10);
             this.label4.TabIndex = 34;
@@ -236,7 +391,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label2.Location = new System.Drawing.Point(301, 0);
+            this.label2.Location = new System.Drawing.Point(454, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 33;
@@ -246,18 +401,19 @@
             // 
             this.txtCodCat.Enabled = false;
             this.txtCodCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodCat.Location = new System.Drawing.Point(235, 8);
+            this.txtCodCat.Location = new System.Drawing.Point(352, 8);
             this.txtCodCat.Name = "txtCodCat";
-            this.txtCodCat.Size = new System.Drawing.Size(53, 29);
+            this.txtCodCat.Size = new System.Drawing.Size(39, 29);
             this.txtCodCat.TabIndex = 32;
+            this.txtCodCat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodCat_KeyPress);
             // 
             // txtNomInsumo
             // 
             this.txtNomInsumo.Enabled = false;
             this.txtNomInsumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomInsumo.Location = new System.Drawing.Point(294, 8);
+            this.txtNomInsumo.Location = new System.Drawing.Point(404, 8);
             this.txtNomInsumo.Name = "txtNomInsumo";
-            this.txtNomInsumo.Size = new System.Drawing.Size(196, 29);
+            this.txtNomInsumo.Size = new System.Drawing.Size(225, 29);
             this.txtNomInsumo.TabIndex = 31;
             // 
             // txtNomProveedor
@@ -266,7 +422,7 @@
             this.txtNomProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomProveedor.Location = new System.Drawing.Point(65, 8);
             this.txtNomProveedor.Name = "txtNomProveedor";
-            this.txtNomProveedor.Size = new System.Drawing.Size(166, 29);
+            this.txtNomProveedor.Size = new System.Drawing.Size(265, 29);
             this.txtNomProveedor.TabIndex = 30;
             // 
             // label1
@@ -275,7 +431,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label1.Location = new System.Drawing.Point(495, 0);
+            this.label1.Location = new System.Drawing.Point(3, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 29;
@@ -305,11 +461,12 @@
             // 
             // txtPorcentajeMP
             // 
-            this.txtPorcentajeMP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPorcentajeMP.Location = new System.Drawing.Point(494, 8);
+            this.txtPorcentajeMP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcentajeMP.Location = new System.Drawing.Point(6, 52);
             this.txtPorcentajeMP.Name = "txtPorcentajeMP";
-            this.txtPorcentajeMP.Size = new System.Drawing.Size(49, 29);
+            this.txtPorcentajeMP.Size = new System.Drawing.Size(62, 24);
             this.txtPorcentajeMP.TabIndex = 2;
+            this.txtPorcentajeMP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentajeMP_KeyPress);
             this.txtPorcentajeMP.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPorcentajeMP_KeyUp);
             // 
             // txtCod
@@ -319,6 +476,7 @@
             this.txtCod.Name = "txtCod";
             this.txtCod.Size = new System.Drawing.Size(53, 29);
             this.txtCod.TabIndex = 1;
+            this.txtCod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCod_KeyPress);
             this.txtCod.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCod_KeyUp);
             // 
             // txtBuscarPorPorducto
@@ -429,6 +587,8 @@
             this.txtUnidadesAcotizar.Name = "txtUnidadesAcotizar";
             this.txtUnidadesAcotizar.Size = new System.Drawing.Size(126, 20);
             this.txtUnidadesAcotizar.TabIndex = 46;
+            this.txtUnidadesAcotizar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUnidadesAcotizar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnidadesAcotizar_KeyPress);
             this.txtUnidadesAcotizar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUnidadesAcotizar_KeyUp);
             // 
             // txtPresentacionGrMl
@@ -437,15 +597,19 @@
             this.txtPresentacionGrMl.Name = "txtPresentacionGrMl";
             this.txtPresentacionGrMl.Size = new System.Drawing.Size(84, 20);
             this.txtPresentacionGrMl.TabIndex = 47;
+            this.txtPresentacionGrMl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPresentacionGrMl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPresentacionGrMl_KeyPress);
             this.txtPresentacionGrMl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPresentacionGrMl_KeyUp);
             // 
-            // textBox3
+            // txtcantPedidaKiloLitro
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(220, 122);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(85, 20);
-            this.textBox3.TabIndex = 48;
+            this.txtcantPedidaKiloLitro.Enabled = false;
+            this.txtcantPedidaKiloLitro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcantPedidaKiloLitro.Location = new System.Drawing.Point(220, 122);
+            this.txtcantPedidaKiloLitro.Name = "txtcantPedidaKiloLitro";
+            this.txtcantPedidaKiloLitro.Size = new System.Drawing.Size(85, 20);
+            this.txtcantPedidaKiloLitro.TabIndex = 48;
+            this.txtcantPedidaKiloLitro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label15
             // 
@@ -570,6 +734,7 @@
             this.textBox26.Name = "textBox26";
             this.textBox26.Size = new System.Drawing.Size(149, 20);
             this.textBox26.TabIndex = 61;
+            this.textBox26.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label33
             // 
@@ -588,6 +753,7 @@
             this.textBox27.Name = "textBox27";
             this.textBox27.Size = new System.Drawing.Size(146, 20);
             this.textBox27.TabIndex = 60;
+            this.textBox27.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label35
             // 
@@ -631,6 +797,7 @@
             this.textBox28.Name = "textBox28";
             this.textBox28.Size = new System.Drawing.Size(85, 20);
             this.textBox28.TabIndex = 62;
+            this.textBox28.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox29
             // 
@@ -639,6 +806,7 @@
             this.textBox29.Name = "textBox29";
             this.textBox29.Size = new System.Drawing.Size(84, 20);
             this.textBox29.TabIndex = 61;
+            this.textBox29.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label38
             // 
@@ -657,6 +825,7 @@
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(126, 20);
             this.textBox30.TabIndex = 60;
+            this.textBox30.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label39
             // 
@@ -711,6 +880,7 @@
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(85, 20);
             this.textBox22.TabIndex = 62;
+            this.textBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label31
             // 
@@ -728,6 +898,7 @@
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(84, 20);
             this.textBox23.TabIndex = 61;
+            this.textBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label30
             // 
@@ -746,6 +917,7 @@
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(126, 20);
             this.textBox24.TabIndex = 60;
+            this.textBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label27
             // 
@@ -804,6 +976,7 @@
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(84, 20);
             this.textBox16.TabIndex = 86;
+            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label25
             // 
@@ -822,6 +995,7 @@
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(84, 20);
             this.textBox17.TabIndex = 85;
+            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox18
             // 
@@ -830,6 +1004,7 @@
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(84, 20);
             this.textBox18.TabIndex = 84;
+            this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox19
             // 
@@ -838,6 +1013,7 @@
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(84, 20);
             this.textBox19.TabIndex = 83;
+            this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox20
             // 
@@ -846,6 +1022,7 @@
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(84, 20);
             this.textBox20.TabIndex = 82;
+            this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox21
             // 
@@ -854,6 +1031,7 @@
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(84, 20);
             this.textBox21.TabIndex = 81;
+            this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label19
             // 
@@ -872,6 +1050,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(84, 20);
             this.textBox10.TabIndex = 77;
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox11
             // 
@@ -880,6 +1059,7 @@
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(84, 20);
             this.textBox11.TabIndex = 76;
+            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox12
             // 
@@ -888,6 +1068,7 @@
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(84, 20);
             this.textBox12.TabIndex = 75;
+            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox13
             // 
@@ -896,6 +1077,7 @@
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(84, 20);
             this.textBox13.TabIndex = 74;
+            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox14
             // 
@@ -904,6 +1086,7 @@
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(84, 20);
             this.textBox14.TabIndex = 73;
+            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox15
             // 
@@ -912,6 +1095,7 @@
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(84, 20);
             this.textBox15.TabIndex = 72;
+            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label16
             // 
@@ -940,6 +1124,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(84, 20);
             this.textBox7.TabIndex = 65;
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox8
             // 
@@ -948,6 +1133,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(84, 20);
             this.textBox8.TabIndex = 64;
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox9
             // 
@@ -956,6 +1142,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(84, 20);
             this.textBox9.TabIndex = 63;
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox6
             // 
@@ -964,6 +1151,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(84, 20);
             this.textBox6.TabIndex = 62;
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox5
             // 
@@ -972,6 +1160,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(84, 20);
             this.textBox5.TabIndex = 61;
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox4
             // 
@@ -980,6 +1169,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(84, 20);
             this.textBox4.TabIndex = 60;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel3
             // 
@@ -1027,156 +1217,17 @@
             this.panel5.Size = new System.Drawing.Size(306, 84);
             this.panel5.TabIndex = 90;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1125, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 41);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // eRP
             // 
             this.eRP.ContainerControl = this;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(547, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(50, 29);
-            this.textBox1.TabIndex = 37;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label7.Location = new System.Drawing.Point(549, -4);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 17);
-            this.label7.TabIndex = 38;
-            this.label7.Text = "Kl / Lts";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(602, 8);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(48, 29);
-            this.textBox2.TabIndex = 39;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.BackColor = System.Drawing.Color.Transparent;
-            this.label34.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label34.Location = new System.Drawing.Point(608, -3);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(22, 17);
-            this.label34.TabIndex = 40;
-            this.label34.Text = "Gr";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.BackColor = System.Drawing.Color.Transparent;
-            this.label37.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label37.Location = new System.Drawing.Point(660, -3);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(30, 17);
-            this.label37.TabIndex = 42;
-            this.label37.Text = "Mgr";
-            // 
-            // textBox25
-            // 
-            this.textBox25.Enabled = false;
-            this.textBox25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox25.Location = new System.Drawing.Point(654, 8);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(47, 29);
-            this.textBox25.TabIndex = 41;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.BackColor = System.Drawing.Color.Transparent;
-            this.label42.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label42.Location = new System.Drawing.Point(711, -4);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(26, 17);
-            this.label42.TabIndex = 44;
-            this.label42.Text = "UN";
-            // 
-            // textBox31
-            // 
-            this.textBox31.Enabled = false;
-            this.textBox31.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox31.Location = new System.Drawing.Point(705, 8);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(48, 29);
-            this.textBox31.TabIndex = 43;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.BackColor = System.Drawing.Color.Transparent;
-            this.label43.Font = new System.Drawing.Font("Palatino Linotype", 6F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label43.Location = new System.Drawing.Point(756, -1);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(52, 11);
-            this.label43.TabIndex = 46;
-            this.label43.Text = "Px UNIT en $";
-            // 
-            // textBox32
-            // 
-            this.textBox32.Enabled = false;
-            this.textBox32.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox32.Location = new System.Drawing.Point(757, 8);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(48, 29);
-            this.textBox32.TabIndex = 45;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.BackColor = System.Drawing.Color.Transparent;
-            this.label44.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label44.Location = new System.Drawing.Point(814, -4);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(40, 17);
-            this.label44.TabIndex = 48;
-            this.label44.Text = "Costo";
-            // 
-            // textBox33
-            // 
-            this.textBox33.Enabled = false;
-            this.textBox33.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox33.Location = new System.Drawing.Point(808, 8);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(48, 29);
-            this.textBox33.TabIndex = 47;
             // 
             // ProductoForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 674);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtcantPedidaKiloLitro);
             this.Controls.Add(this.txtPresentacionGrMl);
             this.Controls.Add(this.txtUnidadesAcotizar);
             this.Controls.Add(this.label12);
@@ -1195,8 +1246,10 @@
             this.Name = "ProductoForms";
             this.Text = "Producto";
             this.Load += new System.EventHandler(this.ProductoForms_Load);
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1208,7 +1261,6 @@
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eRP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1242,7 +1294,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtUnidadesAcotizar;
         private System.Windows.Forms.TextBox txtPresentacionGrMl;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtcantPedidaKiloLitro;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
@@ -1304,17 +1356,17 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ErrorProvider eRP;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtGr;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtkllt;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox textBox32;
+        private System.Windows.Forms.TextBox txtPrecioUnitarioPesos;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.TextBox textBox31;
+        private System.Windows.Forms.TextBox TxtUnidad;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox textBox25;
+        private System.Windows.Forms.TextBox txtMgr;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.TextBox textBox33;
+        private System.Windows.Forms.TextBox txtCosto;
     }
 }

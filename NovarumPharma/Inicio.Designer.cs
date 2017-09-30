@@ -43,6 +43,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.nuevoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -88,8 +89,8 @@
             // insumosToolStripMenuItem
             // 
             this.insumosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.administrarToolStripMenuItem,
-            this.nuevoToolStripMenuItem1});
+            this.nuevoToolStripMenuItem1,
+            this.administrarToolStripMenuItem});
             this.insumosToolStripMenuItem.Name = "insumosToolStripMenuItem";
             this.insumosToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.insumosToolStripMenuItem.Text = "Insumos";
@@ -110,6 +111,7 @@
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevoToolStripMenuItem2,
             this.administrarToolStripMenuItem2});
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             this.productosToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
@@ -179,6 +181,12 @@
             this.panel3.Size = new System.Drawing.Size(365, 10);
             this.panel3.TabIndex = 12;
             // 
+            // nuevoToolStripMenuItem2
+            // 
+            this.nuevoToolStripMenuItem2.Name = "nuevoToolStripMenuItem2";
+            this.nuevoToolStripMenuItem2.Size = new System.Drawing.Size(186, 22);
+            this.nuevoToolStripMenuItem2.Text = "Nuevo";
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,5 +229,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem2;
     }
 }
