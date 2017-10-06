@@ -34,6 +34,7 @@ namespace NovarumPharma
             }
         }
         string strinActualizarGrid = "select i.cod_insumo AS [Cod Nº],p.Nombre AS Proveedor,i.cod_cat AS [Cod Cat],i.nombre AS [Nombre Insumo],ir.cantMP AS [Cant % MP],ir.KLxInusmo AS [Kg/Lts por insumo],ir.GrInsumo AS [Gr por Insumo],ir.MgrInsumo AS [Mgr por Insumo],pi.un AS UN,pi.precioConIVA AS [Precion C/IVA],ir.CostoConIVA AS [Costo con IVA] FROM Insumos i,Proveedores p,Proveedor_Insumo pi,Receta r,Insumos_Receta ir where i.cod_insumo=pi.cod_insumo and pi.id_proveedor=p.id_proveedor and i.cod_insumo=ir.cod_insumo and ir.id_receta=r.id_receta";// ORDER BY i.cod_insumo ASC 
+
         private void txtCod_KeyUp(object sender, KeyEventArgs e)
         {
             //si no ahi nada en el txtobox
@@ -44,7 +45,7 @@ namespace NovarumPharma
             //a medida que teclea el codigo se cargan los datos correspondientes en los textbos pasados por parametro, en base al txtcod=codigo
             else
             {
-                dato.cargarTXT(txtCod, txtNomProveedor, txtNomInsumo, txtCodCat, txtPrecioUnitarioPesos, TxtUnidad);
+                dato.cargarTXBoxInsumos(txtCod, txtNomProveedor, txtNomInsumo, txtCodCat, txtPrecioUnitarioPesos, TxtUnidad);
                 eRP.Clear();
             }
         }
@@ -96,20 +97,28 @@ namespace NovarumPharma
                 //p.Nombre = txtNombreProducto.Text;
                 //p.PresentacionGM = Convert.ToDecimal(txtPresentacionGrMl.Text);
                 //p.CostoconIVA = Convert.ToDecimal(txtCosto.Text);
-
+                
                 string estado = "repetido";
-                if (estado == dato.validarExistencia(Convert.ToInt32(txtCod.Text), 1))
+                if (estado == dato.validarExistenciaInsumoreceta(Convert.ToInt32(txtCod.Text),Convert.ToInt32(txtIdReceta.Text)))
                 {
                     MessageBox.Show("Este insumo se encuentra ya en este producto");
+                }
+                else
+                {
+                    if (dato.ValidarExistenciaProducto(txtNombreProducto.Text) == "esta")
+                    {
+                        MessageBox.Show("Este Producto ya existe");
+                    }
+                    else
+                    {
+                        MessageBox.Show("creara El producto");
+                    }
                     //string insert0 = "INSERT INTO Producto(nombre,presentacionGM,costoConIVA) VALUES('" + p.Nombre + "','" + p.PresentacionGM + "','" + p.CostoconIVA + "')";
                     //string insert1 = "INSERT INTO Receta(id_producto,nombre) VALUES()";
                     //string insert2 = "INSERT INTO Insumos_Receta(cod_insumo,id_receta,cantMP) VALUES(1,1,20)";
                     //dato.ejecutarQuery(insert0);
                     //dato.ejecutarQuery(insert1);
                     //dato.ejecutarQuery(insert2);
-                }
-                else
-                {
                     MessageBox.Show("Se agrego el Registro", "joia");
                 }
                 
@@ -119,8 +128,18 @@ namespace NovarumPharma
 
         private void txtNombreProducto_KeyUp(object sender, KeyEventArgs e)
         {
-            lvNombreDelProducto.Text = txtNombreProducto.Text;
-            eRP.Clear();
+            if (txtNombreProducto.Text == "")
+            {
+
+            }
+            else
+            {
+                dato.cargarDatoProducto(txtNombreProducto, txtIdReceta);
+                dato.actualizaGrid(dgProductos, strinActualizarGrid + " and r.nombre like'%" + txtNombreProducto.Text + "%';", "Insumos");
+                lvNombreDelProducto.Text = txtNombreProducto.Text;
+                eRP.Clear();
+            }
+            
         }
 
         private void txtPorcentajeMP_KeyUp(object sender, KeyEventArgs e)

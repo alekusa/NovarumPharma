@@ -73,7 +73,7 @@ namespace NovarumPharma
             return resultado;
 
         }
-        public void cargarTXT(TextBox tx,TextBox tx1, TextBox tx2, TextBox tx3, TextBox tx4, TextBox tx5)
+        public void cargarTXBoxInsumos(TextBox tx,TextBox tx1, TextBox tx2, TextBox tx3, TextBox tx4, TextBox tx5)
             {
                 
                 Conectar();
@@ -93,7 +93,24 @@ namespace NovarumPharma
                     }
                     dr.Close();
             }
-        public string validarExistencia(int ID1, int ID2)
+        public void cargarDatoProducto(TextBox tx, TextBox tx1)
+        {
+
+            Conectar();
+            string BusquedaPorCodInsumo = "SELECT r.id_receta FROM Producto p, Receta r, Insumos_Receta ir WHERE p.id_producto=r.id_producto and r.id_receta=ir.id_receta and p.nombre=" + tx.Text + "";
+            OleDbCommand comando = new OleDbCommand(BusquedaPorCodInsumo, conexion);
+            comando.Parameters.AddWithValue("", tx.Text);
+            OleDbDataReader dr = comando.ExecuteReader();
+            if (dr.Read())
+            {
+
+                tx1.Text = Convert.ToString(dr["id_receta"]);
+                
+            }
+            dr.Close();
+        }
+
+        public string validarExistenciaInsumoreceta(int ID1, int ID2)
         {
             conexion.Close();
             string comparacion1 = "";
@@ -140,7 +157,33 @@ namespace NovarumPharma
             
             
         }
-        
+        public string ValidarExistenciaProducto(string ID1)
+        {
+            conexion.Close();
+            
+            string resultado = "";
+
+            string dato1 = "SELECT * FROM Producto WHERE nombre='" + ID1 + "'";
+            OleDbCommand comando = new OleDbCommand(dato1, conexion);
+            conexion.Open();
+            OleDbDataReader leer = comando.ExecuteReader();
+
+            if (leer.Read() == true)
+            {
+                resultado = "esta";
+            }
+            else
+            {
+                resultado = "no";
+            }
+            leer.Close();
+            conexion.Close();
+
+            return resultado;
+
+
+        }
+
 
 
     }
