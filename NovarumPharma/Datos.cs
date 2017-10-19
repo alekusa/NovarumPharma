@@ -14,6 +14,8 @@ namespace NovarumPharma
         OleDbConnection conexion;
         OleDbCommand comando = new OleDbCommand();
         OleDbDataReader dr;
+       
+        
 
         public OleDbDataReader pDr
         {
@@ -46,7 +48,23 @@ namespace NovarumPharma
             dataAdapter.Fill(dataset, tabla);
             dg.DataSource = dataset;
             dg.DataMember = tabla;
+            
             desconectar();
+        }
+        public void UpdatePorcentaje(string NewPorcentajeMP, string codInsumo, string idReceta)
+        {
+            try
+            {
+                Conectar();
+                comando.CommandText = "UPDATE Insumos_Receta SET cantMP="+ NewPorcentajeMP + " WHERE cod_insumo="+codInsumo+" and id_receta="+idReceta+"";
+                comando.ExecuteNonQuery();
+                desconectar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void cargarComboBox(ComboBox comBox, string tabla, string dato, string pk)
@@ -77,7 +95,7 @@ namespace NovarumPharma
             {
                 
                 Conectar();
-                string BusquedaPorCodInsumo = "SELECT p.Nombre,i.nombre,cod_cat,precioConIVA,un FROM Proveedores p, Proveedor_Insumo pi, Insumos i WHERE p.id_proveedor=pi.id_proveedor and pi.cod_insumo=i.cod_insumo and i.cod_insumo=" + tx.Text+"";
+                string BusquedaPorCodInsumo = "SELECT p.Nombre,i.nombre,cod_cat,precioConIVA,un FROM Proveedores p, Proveedor_Insumo pi, Insumos i WHERE p.id_proveedor=pi.id_proveedor and pi.cod_insumo=i.cod_insumo and i.cod_insumo=" + tx.Text + "";
                 OleDbCommand comando = new OleDbCommand(BusquedaPorCodInsumo, conexion);
                 comando.Parameters.AddWithValue("", tx.Text);
                 OleDbDataReader dr = comando.ExecuteReader();
@@ -91,24 +109,55 @@ namespace NovarumPharma
                         tx5.Text = Convert.ToString(dr["un"]);
 
                     }
+            else
+            {
+                tx1.Clear();
+                tx2.Clear();
+                tx3.Clear();
+                tx4.Clear();
+                tx5.Clear();
+            }
                     dr.Close();
             }
+
         public void cargarDatoProducto(TextBox tx, TextBox tx1)
         {
 
             Conectar();
-            string BusquedaPorCodInsumo = "SELECT r.id_receta FROM Producto p, Receta r, Insumos_Receta ir WHERE p.id_producto=r.id_producto and r.id_receta=ir.id_receta and p.nombre=" + tx.Text + "";
+            string BusquedaPorCodInsumo = "SELECT r.id_receta FROM Producto p, Receta r  WHERE p.id_producto=r.id_producto and p.nombre='"+tx.Text+"'";
             OleDbCommand comando = new OleDbCommand(BusquedaPorCodInsumo, conexion);
             comando.Parameters.AddWithValue("", tx.Text);
             OleDbDataReader dr = comando.ExecuteReader();
             if (dr.Read())
             {
-
                 tx1.Text = Convert.ToString(dr["id_receta"]);
-                
+                dr.Close();
             }
-            dr.Close();
+            desconectar();
         }
+
+        public void recuperarIDproducto(TextBox t1, TextBox t2)
+        {
+           
+            Conectar();
+            string BusquedaPorCodInsumo = "SELECT id_producto FROM Producto WHERE nombre='" + t1.Text + "'";
+            OleDbCommand comando = new OleDbCommand(BusquedaPorCodInsumo, conexion);
+            comando.Parameters.AddWithValue("", t1.Text);
+            OleDbDataReader dr = comando.ExecuteReader();
+            if (dr.Read())
+            {
+                t2.Text = Convert.ToString(dr["id_producto"]);
+                dr.Close();
+            }
+            else
+            {
+                dr.Close();
+            }
+            desconectar();
+        }
+        
+        
+
 
         public string validarExistenciaInsumoreceta(int ID1, int ID2)
         {
@@ -131,8 +180,8 @@ namespace NovarumPharma
                 comparacion1 = "no";
             }
             leer.Close();
-            string dato2 = "select * FROM Insumos_Receta WHERE id_receta='" + ID2 + "'";
-            OleDbCommand comando1 = new OleDbCommand(dato1, conexion);
+            string dato2 = "select * FROM Insumos_Receta WHERE id_receta=" + ID2 + "";
+            OleDbCommand comando1 = new OleDbCommand(dato2, conexion);
             
             OleDbDataReader leer1 = comando.ExecuteReader();
             if (leer1.Read() == true)
@@ -152,7 +201,7 @@ namespace NovarumPharma
                     resultado = "Norepetido";
                 }
             conexion.Close();
-            
+            desconectar();
             return resultado;
             
             
@@ -178,11 +227,38 @@ namespace NovarumPharma
             }
             leer.Close();
             conexion.Close();
-
+            desconectar();
             return resultado;
 
 
         }
+        public Int32 ValidarExistenciaInsumo(int ID1)
+        {
+            conexion.Close();
+
+            Int32 resultado = 0;
+
+            string dato1 = "SELECT * FROM Insumos WHERE cod_insumo=" + ID1 + "";
+            OleDbCommand comando = new OleDbCommand(dato1, conexion);
+            conexion.Open();
+            OleDbDataReader leer = comando.ExecuteReader();
+
+            if (leer.Read() == true)
+            {
+                resultado = 0;
+            }
+            else
+            {
+                resultado = 1;
+            }
+            leer.Close();
+            conexion.Close();
+            desconectar();
+            return resultado;
+
+
+        }
+        
 
 
 

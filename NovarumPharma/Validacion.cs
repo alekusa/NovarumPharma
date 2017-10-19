@@ -31,7 +31,7 @@ namespace NovarumPharma
             }
             catch (Exception ex)
             {
-
+               
             }
         }
         public void soloNumeros(KeyPressEventArgs e)

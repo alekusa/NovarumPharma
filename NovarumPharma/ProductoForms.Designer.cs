@@ -33,7 +33,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductoForms));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.PictureBox btnBuscarProducto;
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label45 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label44 = new System.Windows.Forms.Label();
             this.txtCosto = new System.Windows.Forms.TextBox();
@@ -133,7 +136,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.eRP = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtIdReceta = new System.Windows.Forms.TextBox();
+            this.txtIdProducto = new System.Windows.Forms.TextBox();
             pictureBox2 = new System.Windows.Forms.PictureBox();
+            btnBuscarProducto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -144,6 +149,7 @@
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eRP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(btnBuscarProducto)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -160,6 +166,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label45);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(pictureBox2);
             this.panel1.Controls.Add(this.label44);
@@ -191,6 +199,26 @@
             this.panel1.Size = new System.Drawing.Size(856, 470);
             this.panel1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(778, 442);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 61;
+            this.button1.Text = "Update";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(498, 442);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(44, 18);
+            this.label45.TabIndex = 61;
+            this.label45.Text = "%MP";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -209,7 +237,7 @@
             this.label44.BackColor = System.Drawing.Color.Transparent;
             this.label44.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label44.Location = new System.Drawing.Point(745, 37);
+            this.label44.Location = new System.Drawing.Point(736, 38);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(40, 17);
             this.label44.TabIndex = 48;
@@ -358,9 +386,10 @@
             this.dgProductos.Name = "dgProductos";
             this.dgProductos.RowHeadersVisible = false;
             this.dgProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgProductos.Size = new System.Drawing.Size(848, 355);
             this.dgProductos.TabIndex = 36;
+            this.dgProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductos_CellClick);
             // 
             // label5
             // 
@@ -392,7 +421,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label2.Location = new System.Drawing.Point(454, 3);
+            this.label2.Location = new System.Drawing.Point(413, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 33;
@@ -454,7 +483,7 @@
             // 
             this.lblSumaPorcentaje.AutoSize = true;
             this.lblSumaPorcentaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSumaPorcentaje.Location = new System.Drawing.Point(490, 440);
+            this.lblSumaPorcentaje.Location = new System.Drawing.Point(460, 438);
             this.lblSumaPorcentaje.Name = "lblSumaPorcentaje";
             this.lblSumaPorcentaje.Size = new System.Drawing.Size(20, 24);
             this.lblSumaPorcentaje.TabIndex = 3;
@@ -1225,16 +1254,38 @@
             // txtIdReceta
             // 
             this.txtIdReceta.Enabled = false;
-            this.txtIdReceta.Location = new System.Drawing.Point(60, 43);
+            this.txtIdReceta.Location = new System.Drawing.Point(4, 43);
             this.txtIdReceta.Name = "txtIdReceta";
-            this.txtIdReceta.Size = new System.Drawing.Size(52, 20);
+            this.txtIdReceta.Size = new System.Drawing.Size(40, 20);
             this.txtIdReceta.TabIndex = 60;
+            // 
+            // txtIdProducto
+            // 
+            this.txtIdProducto.Enabled = false;
+            this.txtIdProducto.Location = new System.Drawing.Point(61, 43);
+            this.txtIdProducto.Name = "txtIdProducto";
+            this.txtIdProducto.Size = new System.Drawing.Size(40, 20);
+            this.txtIdProducto.TabIndex = 61;
+            // 
+            // btnBuscarProducto
+            // 
+            btnBuscarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
+            btnBuscarProducto.Location = new System.Drawing.Point(275, 55);
+            btnBuscarProducto.Name = "btnBuscarProducto";
+            btnBuscarProducto.Size = new System.Drawing.Size(28, 29);
+            btnBuscarProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            btnBuscarProducto.TabIndex = 62;
+            btnBuscarProducto.TabStop = false;
+            btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
             // 
             // ProductoForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 674);
+            this.Controls.Add(btnBuscarProducto);
+            this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.txtIdReceta);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.txtcantPedidaKiloLitro);
@@ -1272,6 +1323,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eRP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(btnBuscarProducto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1379,5 +1431,8 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.TextBox txtCosto;
         private System.Windows.Forms.TextBox txtIdReceta;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtIdProducto;
     }
 }
