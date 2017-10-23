@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminInsumos));
             this.grupNewEdit = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtPrecionCiva = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtPrecioSivaDolar = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.cmbMoneda = new System.Windows.Forms.ComboBox();
             this.txtPrecioSiva = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -100,6 +100,18 @@
             this.grupNewEdit.Size = new System.Drawing.Size(1090, 182);
             this.grupNewEdit.TabIndex = 1;
             this.grupNewEdit.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label9.Location = new System.Drawing.Point(2, 95);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(269, 16);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "Precio s/iva en moneda Cotizada";
             // 
             // label13
             // 
@@ -178,18 +190,6 @@
             this.label10.Size = new System.Drawing.Size(72, 16);
             this.label10.TabIndex = 34;
             this.label10.Text = "Moneda";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label9.Location = new System.Drawing.Point(2, 95);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(269, 16);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "Precio s/iva en moneda Cotizada";
             // 
             // cmbMoneda
             // 
@@ -316,7 +316,6 @@
             // 
             // txtCod_insumo
             // 
-            this.txtCod_insumo.Enabled = false;
             this.txtCod_insumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCod_insumo.Location = new System.Drawing.Point(5, 17);
             this.txtCod_insumo.Name = "txtCod_insumo";

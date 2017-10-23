@@ -19,6 +19,7 @@ namespace NovarumPharma
             InitializeComponent();
         }
         Datos dato = new Datos();
+        funciones func = new funciones();
         private static ProductoForms Instancia;
         public static ProductoForms DefInstancia
         {
@@ -102,13 +103,15 @@ namespace NovarumPharma
             else
             {
 
-                string estado = "repetido";
+                string estado = "repe";
                 if (dato.ValidarExistenciaProducto(txtNombreProducto.Text) == "esta")
                 
                 {
                     if(estado == dato.validarExistenciaInsumoreceta(Convert.ToInt32(txtCod.Text), Convert.ToInt32(txtIdReceta.Text)))
                     {
                         MessageBox.Show("este insumo se encuentra en el producto");
+                        func.limpiar(panel1);
+                    
                     }
                     else
                     {
@@ -124,6 +127,7 @@ namespace NovarumPharma
                                 dato.ejecutarQuery("INSERT INTO Insumos_Receta VALUES('" + txtCod.Text + "','" + txtIdReceta.Text + "','" + txtPorcentajeMP.Text + "','" + txtkllt.Text + "','" + txtGr.Text + "','" + txtMgr.Text + "','" + txtCosto.Text + "')");
                                 dato.actualizaGrid(dgProductos, strinActualizarGrid + " and r.nombre like'%" + txtNombreProducto.Text + "%';", "Insumos");
                                 sumaPorcentajeMP();
+                                func.limpiar(panel1);
                             }
                             
                         }
@@ -148,7 +152,7 @@ namespace NovarumPharma
 
                     string NewProducto = "INSERT INTO Producto(nombre,presentacionGM,costoConIVA) VALUES('" + p.Nombre + "','" + p.PresentacionGM + "','" + p.CostoconIVA + "')";
                     dato.ejecutarQuery(NewProducto);
-                    dato.recuperarIDproducto(txtNombreProducto,txtIdProducto);
+                    dato.recuperarIDproducto(txtNombreProducto,txtIdProducto,txtPresentacionGrMl);
 
                     string insert1 = "INSERT INTO Receta(id_producto,nombre) VALUES('"+Convert.ToInt32(txtIdProducto.Text)+"','Fabrica "+txtNombreProducto.Text+"')";
                     dato.ejecutarQuery(insert1);
@@ -162,6 +166,7 @@ namespace NovarumPharma
                     dato.actualizaGrid(dgProductos, strinActualizarGrid + " and pr.nombre like'" + txtNombreProducto.Text + "';", "Insumos");
 
                     sumaPorcentajeMP();
+                    func.limpiar(panel1);
 
                 }
 
@@ -182,15 +187,17 @@ namespace NovarumPharma
             }
             else
             {
+                
                 dato.cargarDatoProducto(txtNombreProducto, txtIdReceta);
-                dato.recuperarIDproducto(txtNombreProducto, txtIdProducto);
+                dato.recuperarIDproducto(txtNombreProducto, txtIdProducto, txtPresentacionGrMl);
                 dato.actualizaGrid(dgProductos, strinActualizarGrid + " and pr.nombre ='" + txtNombreProducto.Text + "';", "Insumos");
                 this.dgProductos.Columns[0].Frozen = true;
                 lvNombreDelProducto.Text = txtNombreProducto.Text;
                 eRP.Clear();
                 sumaPorcentajeMP();
+                
             }
-            
+
         }
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)

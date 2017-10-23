@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.PictureBox pictureBox2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductoForms));
+            System.Windows.Forms.PictureBox btnBuscarProducto;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.PictureBox btnBuscarProducto;
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label45 = new System.Windows.Forms.Label();
@@ -137,9 +137,11 @@
             this.eRP = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtIdReceta = new System.Windows.Forms.TextBox();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             pictureBox2 = new System.Windows.Forms.PictureBox();
             btnBuscarProducto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(btnBuscarProducto)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
@@ -149,7 +151,7 @@
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eRP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(btnBuscarProducto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -164,8 +166,21 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // btnBuscarProducto
+            // 
+            btnBuscarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
+            btnBuscarProducto.Location = new System.Drawing.Point(275, 55);
+            btnBuscarProducto.Name = "btnBuscarProducto";
+            btnBuscarProducto.Size = new System.Drawing.Size(28, 29);
+            btnBuscarProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            btnBuscarProducto.TabIndex = 62;
+            btnBuscarProducto.TabStop = false;
+            btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
+            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label45);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -387,7 +402,7 @@
             this.dgProductos.RowHeadersVisible = false;
             this.dgProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgProductos.Size = new System.Drawing.Size(848, 355);
+            this.dgProductos.Size = new System.Drawing.Size(848, 159);
             this.dgProductos.TabIndex = 36;
             this.dgProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductos_CellClick);
             // 
@@ -1267,17 +1282,13 @@
             this.txtIdProducto.Size = new System.Drawing.Size(40, 20);
             this.txtIdProducto.TabIndex = 61;
             // 
-            // btnBuscarProducto
+            // dataGridView1
             // 
-            btnBuscarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
-            btnBuscarProducto.Location = new System.Drawing.Point(275, 55);
-            btnBuscarProducto.Name = "btnBuscarProducto";
-            btnBuscarProducto.Size = new System.Drawing.Size(28, 29);
-            btnBuscarProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            btnBuscarProducto.TabIndex = 62;
-            btnBuscarProducto.TabStop = false;
-            btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 263);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(847, 172);
+            this.dataGridView1.TabIndex = 62;
             // 
             // ProductoForms
             // 
@@ -1308,6 +1319,7 @@
             this.Text = "Producto";
             this.Load += new System.EventHandler(this.ProductoForms_Load);
             ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(btnBuscarProducto)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1323,7 +1335,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eRP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(btnBuscarProducto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1434,5 +1446,6 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtIdProducto;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

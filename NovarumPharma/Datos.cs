@@ -136,17 +136,18 @@ namespace NovarumPharma
             desconectar();
         }
 
-        public void recuperarIDproducto(TextBox t1, TextBox t2)
+        public void recuperarIDproducto(TextBox t1, TextBox idProducto, TextBox presentacion)
         {
            
             Conectar();
-            string BusquedaPorCodInsumo = "SELECT id_producto FROM Producto WHERE nombre='" + t1.Text + "'";
+            string BusquedaPorCodInsumo = "SELECT id_producto, presentacionGM FROM Producto WHERE nombre='" + t1.Text + "'";
             OleDbCommand comando = new OleDbCommand(BusquedaPorCodInsumo, conexion);
             comando.Parameters.AddWithValue("", t1.Text);
             OleDbDataReader dr = comando.ExecuteReader();
             if (dr.Read())
             {
-                t2.Text = Convert.ToString(dr["id_producto"]);
+                idProducto.Text = Convert.ToString(dr["id_producto"]);
+                presentacion.Text = Convert.ToString(dr["presentacionGM"]);
                 dr.Close();
             }
             else
@@ -162,46 +163,22 @@ namespace NovarumPharma
         public string validarExistenciaInsumoreceta(int ID1, int ID2)
         {
             conexion.Close();
-            string comparacion1 = "";
-            string comparacion2 = "";
             string resultado = "";
-            
-            string dato1 = "SELECT * FROM Insumos_Receta WHERE cod_insumo=" + ID1 + "";
+                        
+            string dato1 = "SELECT * FROM Insumos_Receta WHERE cod_insumo=" + ID1 + " and id_receta="+ ID2 +"";
             OleDbCommand comando = new OleDbCommand(dato1, conexion);
             conexion.Open();
             OleDbDataReader leer = comando.ExecuteReader();
             
             if (leer.Read() == true)
             {
-                comparacion1 = "esta";
+                resultado = "repe";
             }
             else
             {
-                comparacion1 = "no";
+                resultado = "no";
             }
             leer.Close();
-            string dato2 = "select * FROM Insumos_Receta WHERE id_receta=" + ID2 + "";
-            OleDbCommand comando1 = new OleDbCommand(dato2, conexion);
-            
-            OleDbDataReader leer1 = comando.ExecuteReader();
-            if (leer1.Read() == true)
-            {
-                comparacion2 = "esta";
-            }
-            else
-            {
-                comparacion2 = "no";
-            }
-            if((comparacion1 == "esta") && (comparacion2 == "esta"))
-                {
-                    resultado = "repetido";
-                }
-            else
-                { 
-                    resultado = "Norepetido";
-                }
-            conexion.Close();
-            desconectar();
             return resultado;
             
             

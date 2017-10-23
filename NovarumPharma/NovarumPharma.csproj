@@ -77,6 +77,7 @@
       <DependentUpon>Configuracion.cs</DependentUpon>
     </Compile>
     <Compile Include="Datos.cs" />
+    <Compile Include="funciones.cs" />
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
