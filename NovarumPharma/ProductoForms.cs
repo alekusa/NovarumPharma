@@ -187,6 +187,8 @@ namespace NovarumPharma
             }
             else
             {
+                string stringPrueva = "select i.cod_insumo, p.Nombre, i.cod_cat, i.nombre, ir.cantMP, ir.KLxInusmo, ir.GrInsumo, ir.MgrInsumo, pi.un, pi.precioConIVA, ir.CostoConIVA FROM Insumos i,Proveedores p, Proveedor_Insumo pi,Receta r, Insumos_Receta ir,Producto pr where i.cod_insumo = pi.cod_insumo and pi.id_proveedor = p.id_proveedor and i.cod_insumo = ir.cod_insumo and ir.id_receta = r.id_receta and pr.id_producto = r.id_producto";
+                dato.actualizaGrid(dgPrueva, stringPrueva + " and pr.nombre ='" + txtNombreProducto.Text + "';", "Insumos");
                 
                 dato.cargarDatoProducto(txtNombreProducto, txtIdReceta);
                 dato.recuperarIDproducto(txtNombreProducto, txtIdProducto, txtPresentacionGrMl);
